@@ -6,7 +6,7 @@
 
 class Game{
 private:
-  SDL_Rect windowDimension;
+  SDL_Rect windowRect;
   bool isRunning = false;
 
   SDL_Window *window;

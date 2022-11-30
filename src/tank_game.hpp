@@ -1,9 +1,10 @@
 #pragma once
 #include "../library/game.hpp"
 
-#define extends :public
-
 class TankGame extends Game{
 public:
-  TankGame(): Game("Tankerring", 720, 480){}
+  TankGame(): Game("Tankerring", 720, 480){
+    layers.set("background", this);
+    layers.set("mainMenu", this);
+  }
 };

@@ -1,15 +1,15 @@
 #pragma once
 #include <SDL2/SDL.h>
+#include "game_object.hpp"
 
 class Game;
 
-class Layer{
+class Layer extends GameObject{
 private:
   SDL_Color color;
-  Game *game;
   bool visible = true;
 public:
-  Layer(Game *, SDL_Color = {0, 0, 0, 1});
+  Layer(Game *, SDL_Color = {0, 0, 0, 0});
   Layer(Layer &&);
   ~Layer();
   void setVisibility(bool);

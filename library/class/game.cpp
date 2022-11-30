@@ -3,14 +3,15 @@
 #include "../game.hpp"
 
 Game::Game(const char *title, int width, int height, int x, int y):
-  windowDimension{x, y, width, height}{
+  windowRect{0, 0, width, height}{
+    std::cout << "[width: " << windowRect.w;
   if(SDL_Init(SDL_INIT_EVERYTHING) < 0){
     isRunning = false;
     return;
   }
 
   std::cout << "[Game]: SDL initialised" << std::endl;
-  window = SDL_CreateWindow(title, x, y, windowDimension.w, windowDimension.h, SDL_WINDOW_SHOWN);
+  window = SDL_CreateWindow(title, x, y, windowRect.w, windowRect.h, SDL_WINDOW_SHOWN);
   if(window == nullptr){
     isRunning = false;
     return;
@@ -73,9 +74,12 @@ void Game::update(){
 
 void Game::render(){
   SDL_RenderClear(renderer);
+
   layers.forEach([](Layer &layer, const char *key){
     layer.render();
   });
+
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
   SDL_RenderPresent(renderer);
 }
 
@@ -118,5 +122,5 @@ bool Game::running(){
 }
 
 const SDL_Rect &Game::getWindowRect(){
-  return windowDimension;
+  return windowRect;
 }

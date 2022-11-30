@@ -2,11 +2,10 @@
 #include "../library/game.hpp"
 #include <iostream>
 
-Layer::Layer(Game *game, SDL_Color color): game(game), color(color){
+Layer::Layer(Game *game, SDL_Color color): GameObject(game), color(color){
   std::cout << "[Layer]: created" << std::endl;
 }
-Layer::Layer(Layer &&layer){
-  this->game = layer.game;
+Layer::Layer(Layer &&layer): GameObject(layer.game){
   this->color = layer.color;
   std::cout << "[Layer]: copied" << std::endl;
 }

@@ -13,6 +13,9 @@ public:
   T &operator[](const char *key){
     return data.at(key);
   }
+  const size_t size() const {
+    return data.size();
+  }
   bool has(const char *key){
     return data.find(key) != data.end();
   }
