@@ -8,6 +8,6 @@ class GameObject{
 public:
   Game * game;
   GameObject(Game *);
-  void update();
-  void render();
+  virtual void update();
+  virtual void render();
 };

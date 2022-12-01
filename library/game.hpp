@@ -19,8 +19,8 @@ public:
   Game(const char *title, int width, int height, int x = SDL_WINDOWPOS_UNDEFINED, int y = SDL_WINDOWPOS_UNDEFINED);
   ~Game();
   void run();
-  void update();
-  void render();
+  virtual void update();
+  virtual void render();
   void eventHandler();
   void clean();
   bool running();

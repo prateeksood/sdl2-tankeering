@@ -12,9 +12,9 @@
 
 #if _DEBUG == 1
   #define __FILENAME__ (strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__)
-  #define log(text) std::cout << __FILENAME__ << " [" << __LINE__ << "]: " << text << std::endl
-  #define log_as(variable) std::cout << __FILENAME__ << " [" << __LINE__ << "]: " << #variable << " = " << variable << std::endl;
+  #define LOG(text) std::cout << __FILENAME__ << " [" << __LINE__ << "]: " << text << std::endl
+  #define LOG_AS(variable) std::cout << __FILENAME__ << " [" << __LINE__ << "]: " << #variable << " = " << variable << std::endl;
 #else
-  #define log(text)
-  #define log_as(variable)
+  #define LOG(text)
+  #define LOG_AS(variable)
 #endif
