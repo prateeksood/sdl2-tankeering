@@ -11,9 +11,9 @@ typedef struct Vector2{
 class Line2D{
 public:
   Vector2 point[2];
-  Line2D(): point({ { 0, 0 }, { 0, 0 } }){}
-  Line2D(Vector2 p0, Vector2 p1): point({ { p0.x, p0.y }, { p1.x, p1.y } }){}
-  Line2D(int x1, int y1, int x2, int y2): point({ { x1, y1 }, { x2, y2 } }){}
+  Line2D(): point{ { 0, 0 }, { 0, 0 } }{}
+  Line2D(Vector2 p0, Vector2 p1): point{ { p0.x, p0.y }, { p1.x, p1.y } }{}
+  Line2D(int x1, int y1, int x2, int y2): point{ { x1, y1 }, { x2, y2 } }{}
 
   static bool isColliding(Line2D *line1, Line2D *line2){
     float denominator = ((line1->point[1].x - line1->point[0].x) * (line2->point[1].y - line2->point[0].y)) - ((line1->point[1].y - line1->point[0].y) * (line2->point[1].x - line2->point[0].x));

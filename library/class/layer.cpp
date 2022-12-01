@@ -28,6 +28,9 @@ void Layer::render(){
   // std::cout << std::to_string(color.r) << std::endl;
   if(!visible)
     return;
+  for(GameObject *object: objects){
+    object->render();
+  }
   SDL_SetRenderDrawColor(game->renderer, color.r, color.g, color.b, color.a);
   SDL_RenderFillRect(game->renderer, &game->getWindowRect());
 }

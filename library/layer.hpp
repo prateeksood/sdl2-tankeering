@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL2/SDL.h>
 #include "game_object.hpp"
+#include <vector>
 
 class Game;
 
@@ -9,6 +10,7 @@ private:
   SDL_Color color;
   bool visible = true;
 public:
+  std::vector<GameObject *> objects;
   Layer(Game *, SDL_Color = {0, 0, 0, 0});
   Layer(Layer &&);
   ~Layer();

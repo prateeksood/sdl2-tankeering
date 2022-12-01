@@ -79,7 +79,7 @@ void Game::render(){
     layer.render();
   });
 
-  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
   SDL_RenderPresent(renderer);
 }
 
