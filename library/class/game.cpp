@@ -67,25 +67,26 @@ void Game::run(){
 }
 
 void Game::update(){
-  // layers.forEach([](Layer &layer, const char *key){
-    // (*layer)->update();
-  // });
+  layers.forEach([](Layer &layer, const char *key){
+    layer.update();
+  });
 }
 
 void Game::render(){
   SDL_RenderClear(renderer);
+  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
 
   layers.forEach([](Layer &layer, const char *key){
     layer.render();
   });
-
-  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
   SDL_RenderPresent(renderer);
 }
 
 void Game::eventHandler(){
   SDL_Event e;
   SDL_PollEvent( &e );
+  mouseEvent.leftUp = false;
+  mouseEvent.leftDown = false;
   switch (e.type){
     case SDL_QUIT:
       isRunning = false;
@@ -105,6 +106,10 @@ void Game::eventHandler(){
       }
       break;
     case SDL_MOUSEBUTTONUP:
+      mouseEvent.leftUp = true;
+      break;
+    case SDL_MOUSEBUTTONDOWN:
+      mouseEvent.leftDown = true;
       break;
   }
   SDL_PumpEvents();
@@ -123,4 +128,8 @@ bool Game::running(){
 
 const SDL_Rect &Game::getWindowRect(){
   return windowRect;
+}
+
+const SDL_Point &Game::getCursor(){
+  return cursor;
 }

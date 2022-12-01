@@ -13,6 +13,10 @@ private:
   SDL_Point cursor;
 
 public:
+  struct mouseEvent{
+    bool leftDown = false;
+    bool leftUp = false;
+  } mouseEvent;
   MapWrapper<Layer> layers;
   SDL_Renderer *renderer;
   int frameTime = 0;
@@ -25,4 +29,5 @@ public:
   void clean();
   bool running();
   const SDL_Rect &getWindowRect();
+  const SDL_Point &getCursor();
 };

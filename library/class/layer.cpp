@@ -22,15 +22,18 @@ void Layer::setColor(SDL_Color color){
 }
 
 void Layer::update(){
+  for(GameObject *object: objects){
+    object->update();
+  }
 }
 
 void Layer::render(){
   // std::cout << std::to_string(color.r) << std::endl;
   if(!visible)
     return;
+  SDL_SetRenderDrawColor(game->renderer, color.r, color.g, color.b, color.a);
+  SDL_RenderFillRect(game->renderer, &game->getWindowRect());
   for(GameObject *object: objects){
     object->render();
   }
-  SDL_SetRenderDrawColor(game->renderer, color.r, color.g, color.b, color.a);
-  SDL_RenderFillRect(game->renderer, &game->getWindowRect());
 }
