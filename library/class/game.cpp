@@ -67,7 +67,7 @@ void Game::run(){
 }
 
 void Game::update(){
-  layers.forEach([](Layer &layer, const char *key){
+  layers.forEach([](Layer &layer, std::string &key){
     layer.update();
   });
 }
@@ -76,7 +76,7 @@ void Game::render(){
   SDL_RenderClear(renderer);
   SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
 
-  layers.forEach([](Layer &layer, const char *key){
+  layers.forEach([](Layer &layer, std::string &key){
     layer.render();
   });
   SDL_RenderPresent(renderer);

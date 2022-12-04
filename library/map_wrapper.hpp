@@ -26,7 +26,7 @@ public:
       std::forward_as_tuple(args...)
     );
   }
-  void forEach(void (*callback)(T &, K)){
+  void forEach(void (*callback)(T &, K &)){
     for(auto it = data.begin(); it != data.end(); it++)
       callback(it->second, it->first);
   }

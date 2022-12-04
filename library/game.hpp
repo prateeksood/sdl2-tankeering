@@ -33,7 +33,7 @@ public:
     bool leftDown = false;
     bool leftUp = false;
   } mouseEvent;
-  MapWrapper<const char *, Layer> layers;
+  MapWrapper<std::string, Layer> layers;
   SDL_Renderer *renderer;
   int frameTime = 0;
   Game(const char *title, int width, int height, int x = SDL_WINDOWPOS_UNDEFINED, int y = SDL_WINDOWPOS_UNDEFINED);
