@@ -13,6 +13,10 @@ Layer::~Layer(){
   std::cout << "[Layer]: destroyed" << std::endl;
 }
 
+
+bool Layer::isVisible(){
+  return visible;
+}
 void Layer::setVisibility(bool show){
   visible = show;
 }

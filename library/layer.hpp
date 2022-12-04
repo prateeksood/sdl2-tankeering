@@ -14,6 +14,7 @@ public:
   Layer(Game *, SDL_Color = {0, 0, 0, 0});
   Layer(Layer &&);
   ~Layer();
+  bool isVisible();
   void setVisibility(bool);
   void setColor(SDL_Color);
   void update();

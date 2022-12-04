@@ -83,17 +83,14 @@ void Game::render(){
 }
 
 void Game::eventHandler(){
-  SDL_Event e;
-  SDL_PollEvent( &e );
-  mouseEvent.leftUp = false;
-  mouseEvent.leftDown = false;
-  switch (e.type){
+  SDL_PollEvent( &event );
+  switch (event.type){
     case SDL_QUIT:
       isRunning = false;
       break;
 
     case SDL_KEYDOWN:
-      switch (e.key.keysym.sym){
+      switch (event.key.keysym.sym){
         case SDLK_ESCAPE:
           isRunning = false;
           break;
@@ -105,15 +102,10 @@ void Game::eventHandler(){
           break;
       }
       break;
-    case SDL_MOUSEBUTTONUP:
-      mouseEvent.leftUp = true;
-      break;
-    case SDL_MOUSEBUTTONDOWN:
-      mouseEvent.leftDown = true;
-      break;
   }
   SDL_PumpEvents();
   SDL_GetMouseState(&cursor.x, &cursor.y);
+  // GameEvent<GameObject>::handleEvents();
 }
 
 void Game::clean(){
@@ -132,4 +124,8 @@ const SDL_Rect &Game::getWindowRect(){
 
 const SDL_Point &Game::getCursor(){
   return cursor;
+}
+
+const SDL_Event &Game::getEvent(){
+  return event;
 }
